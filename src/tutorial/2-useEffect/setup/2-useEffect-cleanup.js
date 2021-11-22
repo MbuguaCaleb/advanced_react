@@ -1,10 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 // cleanup function
 // second argument
 
 const UseEffectCleanup = () => {
-  return <h2>useEffect cleanup</h2>;
-};
+  const [size, setSize] = useState(window.innerWidth)
 
-export default UseEffectCleanup;
+  //setting my new window size
+  const checkSize = () => {
+    setSize(window.innerWidth)
+  }
+
+  //resize is an event
+  useEffect(() => {
+    console.log('useEffect')
+    window.addEventListener('resize', checkSize)
+
+    return () => {
+      console.log('clean up')
+      window.removeEventListener('resize', checkSize)
+    }
+  })
+
+  console.log('render')
+
+  return (
+    <>
+      <h1>Window</h1>
+      <h2>{size} PX</h2>
+    </>
+  )
+}
+
+export default UseEffectCleanup

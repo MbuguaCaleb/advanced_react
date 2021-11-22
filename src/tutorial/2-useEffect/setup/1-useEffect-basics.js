@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from 'react'
-// by default runs after every re-render
-//line ngOnInit
-//Use state does two things ideally
 
-//(a)It updates the new StateValue
-
-//(b)Triggers a rerender without us knowing
-
-//Rememember we cannot call react hooks as conditionals
-
-// cleanup function
-// second parameter
-
+//By default runs after every rerender
+//clean up function
+//second paramaeter
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0)
 
-  //What ever is passed in here will run after every render
+
 
   useEffect(() => {
     console.log('call useEffect')
-    if (value > 1) {
+    if (value >= 1) {
       document.title = `New Messages (${value})`
     }
-  })
+  }, [value])
+
+  useEffect(() => {
+    console.log('hello world!')
+  }, [])
 
   console.log('render component')
   return (
