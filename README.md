@@ -60,18 +60,42 @@ The spread operator is very important.
 
 //setPerson({ ...person, message: 'Hello World!' })
 
+
+//Working asynchronously via Set State
+
+//i can have much more control over my state via this method
+
+setPeople((oldPeople) => {
+      let newPeople = oldPeople.filter((person) => person.id !== id)
+      return newPeople
+   })
+
+//The result of my call back function sets this new State
+
+
+
 ```
+
+**Project**
 
 1. Birthday Reminder
 
 #### useEffect and Conditional Rendering
 
-2. Tours
-3. Reviews
-4. Accordion
-5. Menu
-6. Tabs
-7. Slider
+```
+useEffect handles any work outside the component.(sideEffects)
+
+e.g fetching data..
+
+It is used when we want to setUp side effects(Some Work
+outside of the Component!)
+
+something that i do not want to handle from the Inside of my Component!
+
+
+```
+
+**PROJECTS** 2. Tours 3. Reviews 4. Accordion 5. Menu 6. Tabs 7. Slider
 
 #### Forms
 
