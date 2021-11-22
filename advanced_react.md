@@ -120,6 +120,12 @@ SECOND PARAMETER IN USE EFFECT
 
   //(d)We can be able to have as many use effects as possible in our components.
 
+CleanUp
+
+It is good practice to implement clean up so as to avoid memory leak.
+
+Just like Observables in Angular JS.
+
 
 ```
 
