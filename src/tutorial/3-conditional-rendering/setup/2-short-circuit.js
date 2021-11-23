@@ -4,14 +4,14 @@ import React, { useState } from 'react'
 
 const ShortCircuit = () => {
   const [text, setText] = useState()
-
+  const [isError, setIsError] = useState(false)
   //if text is true i return text
   //When false i return hello world
-  const firstValue = text || 'hello world'
+  //const firstValue = text || 'hello world'
 
   //if text is true i return Hello WOLD
   //IF FALSE I RETURN TEXT
-  const secondValue = text && 'hello world'
+  //const secondValue = text && 'hello world'
 
   return (
     <>
@@ -25,8 +25,19 @@ const ShortCircuit = () => {
       {/* i cannever use an if statement.It will confuse my JSX */}
 
       <h1>{text || 'Mbugua Caleb'}</h1>
-      {text && <h1>Hello World!</h1>}
-      {!text && <h1>Hello World!</h1>}
+      <button className='btn' onClick={() => setIsError(!isError)}>
+        toggle error
+      </button>
+      {isError && <h1>Error!</h1>}
+      {isError ? (
+        <p>There is an Error....!</p>
+      ) : (
+        <div>
+          <h2>There is no Error!</h2>
+        </div>
+      )}
+      {/* {text && <h1>Hello World!</h1>}
+      {!text && <h1>Hello World!</h1>} */}
     </>
   )
 }
