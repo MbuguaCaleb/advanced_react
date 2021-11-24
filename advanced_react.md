@@ -133,9 +133,40 @@ Just like Observables in Angular JS.
 
 #### Forms
 
-8. Lorem Ipsum Generator
-9. Color Shades Generator
-10. Grocery Bud
+```
+Controlled Inputs
+
+In controlled inputs my Input is hooked to a State Value.
+
+<label htmlFor='firstName'>Name:</label>
+<input type='text' id='firstName' name='firstName' />
+
+htmlFor links my Label to my Input.
+
+Inputs are connected to State Values.
+
+I want to Update my State everytime my Input Changes
+
+Therefore i have onChange event to all inputs i want to submit
+
+  const [firstName, setFirstName] = useState('')
+
+  <input
+   type='text'
+   id='firstName'
+   name='firstName'
+   value={firstName}
+   onChange={(e) => setFirstName(e.target.value)}
+   />
+
+I can then access my State Values on Submit.
+
+
+Uncontrolled Inputs--->UseRef
+
+```
+
+**PROJECTS** 8. Lorem Ipsum Generator 9. Color Shades Generator 10. Grocery Bud
 
 #### useRef
 
