@@ -1,11 +1,30 @@
-import React, { useEffect, useRef } from 'react';
-
-// preserves value
-// DOES NOT trigger re-render
-// target DOM nodes/elements
+import React, { useEffect, useRef } from 'react'
 
 const UseRefBasics = () => {
-  return <h2>useRef</h2>;
-};
+  const refContainer = useRef(null)
+  const divContainer = useRef(null)
 
-export default UseRefBasics;
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(refContainer.current.value)
+    console.log(divContainer.current)
+  }
+
+  //since useRef does not Cause rerender i can be
+  //able to take advantage of UseEffect to focus all inputs
+  //on the first render
+  useEffect(() => {
+    refContainer.current.focus()
+  })
+  return (
+    <>
+      <form className='form' onSubmit={handleSubmit}>
+        <input type='text' ref={refContainer} />
+        <button type='submit'>Submit</button>
+      </form>
+      <div ref={divContainer}>Hello World</div>
+    </>
+  )
+}
+
+export default UseRefBasics

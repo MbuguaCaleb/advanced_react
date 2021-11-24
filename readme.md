@@ -162,22 +162,116 @@ Therefore i have onChange event to all inputs i want to submit
 I can then access my State Values on Submit.
 
 
-Uncontrolled Inputs--->UseRef
+
 
 ```
 
-**PROJECTS** 8. Lorem Ipsum Generator 9. Color Shades Generator 10. Grocery Bud
+**PROJECTS**
+
+8.  Lorem Ipsum Generator 9. Color Shades Generator 10. Grocery Bud
 
 #### useRef
 
+```
+Uncontrolled Inputs--->UseRef
+
+(a)preserves value after the rerenders
+
+(b)Its difference with use state is that it does not trigger a rerender.
+
+(c)It target DOM nodes/elements
+
+It is more like an Angular Element Reference.
+
+Using this approach we do not have the value which is linked
+to the state as we have been handling forms previously
+
+
+const UseRefBasics = () => {
+  const refContainer = useRef(null)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(refContainer.current.value)
+  }
+
+  return (
+    <>
+      <form className='form' onSubmit={handleSubmit}>
+        <input type='text' ref={refContainer} />
+        <button type='submit'>Submit</button>
+      </form>
+    </>
+  )
+}
+
+N/B
+
+This Elemet refernce can be placed on any other HTML
+ELEMENT and not only inputs
+
+It i want to do something specific with a DOM Node, i can
+be able to use(UseRef)
+
+Important!
+
+It is Mostly used to target DOM Nodes.
+
+```
+
+**PROJECT**
+
 11. Navbar
 
-#### useContext
+### useReducer and useContext
+
+```
+Adds more structure to My State especially when dealing with more complex applications.
+
+Helps me in Managing my State Across components.
+
+Its More like Redux.
+
+Actions are passed as parameters to reducers which is called dispatching....>and the Reducer returns
+the New State.
+
+(Reducer takes in the Old State and will return the New State)
+
+i Only Update my State when i call dispatch into the reducer
+
+
+Reducer Funtion
+
+//The reducer will take in My State because at the end of the Day
+//all it does is manipulate My State
+
+//An Action is what is dispatched to MY REDUCER thus affecting my State
+ and its the one that tells my reducer how to Manipulate my State
+
+//You can think of actions as what are we trying to do
+
+
+Applicattion State is Now Linked into the Reducer
+/* application State is now being Managed by My Reducer */
+
+use reducer takes in two arguments
+
+(a)Reducer
+
+(b)Default State
+
+const [state, dispatch] = useReducer(reducer, defaultState)
+
+
+How dipatch Works, Reducer Works, and What is an Action.
+
+
+```
+
+**projects**
 
 12. Modal and Sidebar
 13. Stripe Menus
-
-#### useReducer and useContext
 
 14. Cart
 
