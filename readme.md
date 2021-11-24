@@ -268,6 +268,43 @@ How dipatch Works, Reducer Works, and What is an Action.
 
 ```
 
+**Property Drilling**
+
+```
+ Remember How i can pass props to an Object via spread Operator
+ {people.map((person) => {
+  return (
+    <SinglePerson
+      key={person.id}
+      {...person}
+      removePerson={removePerson}
+    />
+  )
+  })}
+
+Propdrilling is where by i need to pass my functions progrssively
+from parent to the children, a function that the parents may not need
+but there is no other way the Children will have access.
+
+```
+
+**Use Context/Context API**
+
+```
+It is much more like services and providers in Angular JS.
+
+When i use provider in the top Most component, it will be
+as well made available in the child components.
+
+//to use context, we wrap our whole application in the person context provider
+//I Can be able to pass Anything into my Provider including a whole function
+//It is like the Provider function in Angular JS
+//Once i provide it to the top Most Component, It is going to be available in all other components
+
+//use Context helps me get the data that has been passed into my Provider
+
+```
+
 **projects**
 
 12. Modal and Sidebar
