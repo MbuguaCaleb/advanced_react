@@ -1,24 +1,7 @@
 import React, { useState, useReducer } from 'react'
 import Modal from './Modal'
 import { data } from '../../../data'
-
-// reducer function
-//The State in my Reducer is state Just before that Update
-//reducer always returns the State
-
-//i catch my dispatches in my reducer
-const reducer = (state, action) => {
-  console.log(state, action)
-  if (action.type === 'TESTING') {
-    return {
-      ...state,
-      people: data,
-      isModalOpen: true,
-      modalContent: 'Item Added',
-    }
-  }
-}
-
+import { reducer } from './reducer'
 //all my State that i want to pass Around
 const defaultState = {
   people: [],
@@ -28,22 +11,31 @@ const defaultState = {
 
 const Index = () => {
   const [name, setName] = useState('')
-
   /* application State is now being Managed by My Reducer */
   const [state, dispatch] = useReducer(reducer, defaultState)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (name) {
+      const newItem = { id: new Date().getTime().toString(), name }
       //its good to have actions in Uppercase
-      dispatch({ type: 'TESTING' })
+      //when i want to pass something along my action i pass the Payload
+      dispatch({ type: 'ADD_ITEM', payload: newItem })
+      setName('')
     } else {
+      dispatch({ type: 'NO_VALUE' })
     }
+  }
+
+  const closeModal = () => {
+    dispatch({ type: 'CLOSE_MODAL' })
   }
   return (
     <>
       {/* application State is now being Managed by My Reducer */}
-      {state.isModalOpen && <Modal modalContent={state.modalContent} />}
+      {state.isModalOpen && (
+        <Modal closeModal={closeModal} modalContent={state.modalContent} />
+      )}
       <form onSubmit={handleSubmit} className='form'>
         <input
           type='text'
@@ -56,8 +48,15 @@ const Index = () => {
       </form>
       {state.people.map((person) => {
         return (
-          <div key={person.id}>
+          <div key={person.id} className='item'>
             <h4>{person.name}</h4>
+            <button
+              onClick={() =>
+                dispatch({ type: 'REMOVE_ITEM', payload: person.id })
+              }
+            >
+              Remove
+            </button>
           </div>
         )
       })}

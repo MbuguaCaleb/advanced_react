@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react'
 
-const Modal = ({ modalContent }) => {
+//i can as well pass functions as Props
+const Modal = ({ modalContent, closeModal }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      closeModal()
+    }, 3000)
+  })
   return (
     <div className='modal'>
       <p>{modalContent}</p>
