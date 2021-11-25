@@ -347,6 +347,61 @@ Remember,
 Short circuit Opertors can be used in place of ternary Operators
 ```
 
+**Routing In front End Frameworks**
+
+```
+What is distict about routing in front end frameworks
+is that we do not go to Our Servers to refresh pages.
+
+Instead of that, all of this happens on the client side.
+
+When we come to react, we do not have in built routing
+and we have to use an external package called react router
+
+React router DOM is not an official react package.
+
+I have to install it via, react-router-dom
+
+npm install react-router-dom
+
+By Default, for front en frameworks, if the path marches, it displays both components.
+
+Fix, we add and exact prompt
+
+  <Route exact path='/'>
+    <Home />
+  </Route>
+
+Redirecting to a Not Found/404 Page
+
+Just like in Angular, any Other route that does not March can be caught by a WildCard
+
+*(WildCard means always marches)
+
+  <Switch>
+  <Route path='*'>
+      <Error />
+  </Route>
+  </Switch>
+With the Switch Component,  Only the first one that marches is displayed.
+
+Always remember that named imports must be called in exactly the same way.
+
+Any Component outside of the Switch will be displayed in the Switch Component.
+
+Nesting Children and Passing Parameters.
+
+This is very Similar to Angular
+
+
+<Route path='/person/:id' children={<Person />}></Route>
+
+The use Params Hooks is used to retrieve the parameters when the
+new Component Loads.
+
+
+```
+
 **projects**
 
 ```
