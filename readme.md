@@ -327,12 +327,35 @@ RULE
 
 ```
 
+**PropTypes**
+
+```
+Proptypes allow us to Validate our Props...
+
+It is more like adding some typeScript into react js.
+
+rafcp---->autogenerate Prop Types
+
+Autogenerating Proptypes themselves...
+
+ptar....
+
+prop type array required
+
+Remember,
+
+Short circuit Opertors can be used in place of ternary Operators
+```
+
 **projects**
 
+```
 12. Modal and Sidebar
 13. Stripe Menus
 
 14. Cart
+
+```
 
 #### React Router
 
