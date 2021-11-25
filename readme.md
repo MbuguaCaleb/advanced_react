@@ -303,6 +303,28 @@ as well made available in the child components.
 
 //use Context helps me get the data that has been passed into my Provider
 
+
+//One Huge advantage of React is that we can be able to reuse, HTML components
+
+
+```
+
+**Custom Hooks**
+
+```
+They enable us to reuse the functionality.
+
+Fetching data,saving the local storage etc
+
+If i have components that are fetching the same type of data,
+i do not have to duplicate the code.
+
+I Can create a hook separately that returns the state(data)
+
+RULE
+
+(a)A hook must always begin with the name use
+
 ```
 
 **projects**
